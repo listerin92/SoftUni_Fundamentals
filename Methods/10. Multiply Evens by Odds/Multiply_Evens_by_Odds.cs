@@ -1,0 +1,51 @@
+﻿using System;
+
+namespace _10._Multiply_Evens_by_Odds
+{
+    class Multiply_Evens_by_Odds
+    {
+        static void Main(string[] args)
+        {
+            int num = Math.Abs(int.Parse(Console.ReadLine()));
+           
+            Console.WriteLine(GetMultipleOfEvenAndOdds(num));
+        }
+        private static int GetSumOfEvenDigits(int num)
+        {
+            int currDigit;
+            int sum = 0;
+            while (num > 0)
+            {
+                currDigit = num % 10;
+
+                if (currDigit % 2 == 0)
+                    sum += currDigit;
+
+                num /= 10;
+            }
+            return sum;
+        }
+
+        private static int GetSumOfOddDigits(int num)
+        {
+            int currDigit;
+            int sum = 0;
+            while (num > 0)
+            {
+                currDigit = num % 10;
+
+                if (currDigit % 2 != 0)
+                    sum += currDigit;
+
+                num /= 10;
+            }
+            return sum;
+        }
+
+        private static int GetMultipleOfEvenAndOdds(int num)
+        {
+
+            return GetSumOfEvenDigits(num) * GetSumOfOddDigits(num);
+        }
+    }
+}
